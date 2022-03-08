@@ -57,3 +57,25 @@ To add Google Fonts, import it in the `.css` file:
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 ```
 
+To install react icons:
+
+Go to [link](https://react-icons.github.io/react-icons/).
+
+To draw line in the CSS:
+
+```css
+.header__socials::after{
+    content: "";
+    width: 1px;
+    height: 2rem;
+    background: var(--color-primary);
+}
+```
+
+To center the class:
+
+```css
+position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+```
