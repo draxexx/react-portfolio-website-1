@@ -10,6 +10,11 @@ import Contact from "./components/contact/Contact";
 import Footer from "./components/footer/Footer";
 
 const App = () => {
+  // defining states
+  // defining const variables
+  // defining custom hooks
+  // defining effects
+  // defining functions
   return (
     <>
       <Header/>
