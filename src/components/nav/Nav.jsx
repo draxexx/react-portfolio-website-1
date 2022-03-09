@@ -1,19 +1,26 @@
-import React from 'react'
+import { useContext } from "react";
 import "./nav.css";
-import {AiOutlineHome, AiOutlineUser} from "react-icons/ai";
-import {BiBook, BiMessageSquareDetail} from "react-icons/bi";
-import {RiServiceLine} from "react-icons/ri";
-import { useState } from 'react';
+import NavItem from './NavItem';
+import { MenuItems } from './utils';
+import useNav from '../../hooks/useNav';
+import { BiLogOutCircle } from 'react-icons/bi';
+import { UserContext } from '../../App';
 
 const Nav = () => {
-  const [activeNav, setActiveNav] = useState("#");
+  const { user, setUser } = useContext(UserContext);
+
+  const { activeNav, navItemOnClickHandler } = useNav();
+
   return (
     <nav>
-      <a href="#" onClick={() => setActiveNav("#")} className={activeNav === "#" ? "active" : ""}><AiOutlineHome/></a>
-      <a href="#about" onClick={() => setActiveNav("#about")} className={activeNav === "#about" ? "active" : ""}><AiOutlineUser/></a>
-      <a href="#experience" onClick={() => setActiveNav("#experience")} className={activeNav === "#experience" ? "active" : ""}><BiBook/></a>
-      <a href="#services" onClick={() => setActiveNav("#services")} className={activeNav === "#services" ? "active" : ""}><RiServiceLine/></a>
-      <a href="#contact" onClick={() => setActiveNav("#contact")} className={activeNav === "#contact" ? "active" : ""}><BiMessageSquareDetail/></a>
+      {MenuItems.map(item => <NavItem href={item.href} onClick={() => navItemOnClickHandler(item.href)} isActive={activeNav === item.href}>{item.children}</NavItem>)}
+      {user.name && <NavItem href="#test" onClick={() => {
+        alert("Signed out!!"); setUser({
+          email: "",
+          name: "",
+          jobTitle: "",
+        })
+      }} isActive={false}><BiLogOutCircle /></NavItem>}
     </nav>
   )
 }
