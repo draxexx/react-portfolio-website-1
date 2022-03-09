@@ -1,10 +1,10 @@
 # Getting Started with Create React App
 
-To create React project:
+### To create React project:
 
 `npx create-react-app react-portfolio-website-1`
 
-Initial CSS style:
+### Initial CSS style:
 
 ```css
 *{
@@ -34,7 +34,7 @@ body{
 }
 ```
 
-Defining the variables in CSS:
+### Defining the variables in CSS:
 
 ```css
 :root{
@@ -51,17 +51,17 @@ Defining the variables in CSS:
 }
 ```
 
-To add Google Fonts, import it in the `.css` file:
+### To add Google Fonts, import it in the `.css` file:
 
 ```css
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 ```
 
-To install react icons:
+### To install react icons:
 
 Go to [link](https://react-icons.github.io/react-icons/).
 
-To draw line in the CSS:
+### To draw line in the CSS:
 
 ```css
 .header__socials::after{
@@ -72,7 +72,7 @@ To draw line in the CSS:
 }
 ```
 
-To center the class:
+### To center the class:
 
 ```css
 position: absolute;
@@ -80,7 +80,7 @@ position: absolute;
     transform: translateX(-50%);
 ```
 
-To center an item on the page all the time:
+### To center an item on the page all the time:
 
 >It will be on the page all the time because it's `position` is `fixed`. Also it's `z-index` equals `2`, so it will be top of the other objects.
 
@@ -92,13 +92,13 @@ z-index: 2;
     bottom: 2rem;
 ```
 
-Defining `useState`:
+### Defining `useState`:
 
 ```js
 const [activeNav, setActiveNav] = useState("#");
 ```
 
-Set clicked menu item background different from the others:
+### Set clicked menu item background different from the others:
 
 >To notice changes, we use `useState`
 
@@ -124,4 +124,157 @@ nav a.active{
     background: var(--color-bg);
     color: var(--color-white);
 }
+```
+
+### To format codes while saving:
+
+1. Create a `settings.json` file in the `.vscode` folder
+
+```json
+{
+    "editor.formatOnSave": true,
+}
+```
+### Creating custom component to prevent code repeat:
+
+1. Create custom component:
+
+>We can define props for the custom component `{href, onClick, isActive, children}`
+
+```js
+const NavItem = ({href, onClick, isActive, children}) => {
+  return (
+    <a href={href} onClick={onClick} className={isActive ? "active": ""}>{children}</a>
+  )
+}
+
+export default NavItem
+```
+
+2. Create it's data:
+
+>`export` the variable to access from other components
+
+```js
+export const MenuItems = [
+    {
+        href:"#",
+        children: <AiOutlineHome/>,
+    },
+    {
+        href:"#about",
+        children: <AiOutlineUser/>,
+    },
+    {
+        href:"#experience",
+        children: <BiBook/>,
+    },
+    {
+        href:"#services",
+        children: <RiServiceLine/>,
+    },
+    {
+        href:"#contact",
+        children: <BiMessageSquareDetail/>,
+    },
+];
+```
+3. Get the custom component from other components:
+
+```js
+{MenuItems.map(item => <NavItem href={item.href} onClick={() => navItemOnClickHandler(item.href)} isActive={activeNav === item.href}>{item.children}</NavItem>)}
+```
+
+### Creating hooks:
+
+1. Create hook file:
+
+```js
+import { useState, useEffect } from 'react';
+
+const useNav = () => {
+  // states
+  const [activeNav, setActiveNav] = useState("#");
+
+  // defining const variables
+
+  // defining custom hooks
+
+  // effects
+  // will be called when activeNav changed
+  useEffect(() => {
+    console.log(activeNav);
+  }, [activeNav])
+
+  // will be called when the page build once
+  useEffect(() => {
+    console.log("rendered");
+  }, [])
+
+  // defining functions
+  const navItemOnClickHandler = (href) => setActiveNav(href)
+
+  // exports activeNav and navItemOnClickHandler
+  return { activeNav, navItemOnClickHandler };
+}
+
+export default useNav
+```
+
+2. Get hook from the other components:
+
+```js
+  const { activeNav, navItemOnClickHandler } = useNav();
+```
+
+### Using createContext:
+
+1. Create an `createContext` object
+
+```js
+export const UserContext = createContext();
+```
+
+2. Wrap the components with the `UserContext.Provider`
+
+>`user` is a variable. `setUser` is a function to change the `user` variable.
+
+```js
+<UserContext.Provider value={{
+      user, setUser
+    }}>
+      <Header />
+      <Nav />
+      <About />
+      <Experience />
+      <Services />
+      <Portfolio />
+      <Testimonials />
+      <Contact />
+      <Footer />
+    </UserContext.Provider>
+```
+
+3. Get `useContext` from the other components:
+
+```js
+  const { user, setUser } = useContext(UserContext);
+```
+
+>Don't forget to import it
+
+```js
+import { useContext } from "react";
+import { UserContext } from '../../App';
+```
+4. Set the user by using setUser function
+
+```js
+onClick={() => {
+        setUser({
+          email: "",
+          name: "",
+          jobTitle: "",
+        })
+      }
 ```
