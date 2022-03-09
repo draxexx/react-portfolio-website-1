@@ -13,22 +13,22 @@ const Experience = () => {
         <div className="experience__frontend">
           <h3>Frontend Development</h3>
           <div className="experience__content">
-            <ExperienceDetails icon={<BsPatchCheckFill />} skill="HTML" level="Experienced" />
-            <ExperienceDetails icon={<BsPatchCheckFill />} skill="CSS" level="Intermediate" />
-            <ExperienceDetails icon={<BsPatchCheckFill />} skill="JavaScript" level="Experienced" />
-            <ExperienceDetails icon={<BsPatchCheckFill />} skill="Bootstrap" level="Experienced" />
-            <ExperienceDetails icon={<BsPatchCheckFill />} skill="Angular" level="Experienced" />
-            <ExperienceDetails icon={<BsPatchCheckFill />} skill="React" level="Experienced" />
+            <ExperienceDetails icon={<BsPatchCheckFill className="experience__details-icon" />} skill="HTML" level="Experienced" />
+            <ExperienceDetails icon={<BsPatchCheckFill className="experience__details-icon" />} skill="CSS" level="Intermediate" />
+            <ExperienceDetails icon={<BsPatchCheckFill className="experience__details-icon" />} skill="JavaScript" level="Experienced" />
+            <ExperienceDetails icon={<BsPatchCheckFill className="experience__details-icon" />} skill="Bootstrap" level="Experienced" />
+            <ExperienceDetails icon={<BsPatchCheckFill className="experience__details-icon" />} skill="Angular" level="Experienced" />
+            <ExperienceDetails icon={<BsPatchCheckFill className="experience__details-icon" />} skill="React" level="Experienced" />
           </div>
         </div>
         <div className="experience__backend">
           <h3>Backend Development</h3>
           <div className="experience__content">
-            <ExperienceDetails icon={<BsPatchCheckFill />} skill="NODE JS" level="Experienced" />
-            <ExperienceDetails icon={<BsPatchCheckFill />} skill="MongoDB" level="Intermediate" />
-            <ExperienceDetails icon={<BsPatchCheckFill />} skill="PHP" level="Intermediate" />
-            <ExperienceDetails icon={<BsPatchCheckFill />} skill="MySQL" level="Basic" />
-            <ExperienceDetails icon={<BsPatchCheckFill />} skill="Python" level="Experienced" />
+            <ExperienceDetails icon={<BsPatchCheckFill className="experience__details-icon" />} skill="NODE JS" level="Experienced" />
+            <ExperienceDetails icon={<BsPatchCheckFill className="experience__details-icon" />} skill="MongoDB" level="Intermediate" />
+            <ExperienceDetails icon={<BsPatchCheckFill className="experience__details-icon" />} skill="PHP" level="Intermediate" />
+            <ExperienceDetails icon={<BsPatchCheckFill className="experience__details-icon" />} skill="MySQL" level="Basic" />
+            <ExperienceDetails icon={<BsPatchCheckFill className="experience__details-icon" />} skill="Python" level="Experienced" />
           </div>
         </div>
       </div>
