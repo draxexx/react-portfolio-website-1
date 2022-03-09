@@ -91,3 +91,37 @@ z-index: 2;
     transform: translateX(-50%);
     bottom: 2rem;
 ```
+
+Defining `useState`:
+
+```js
+const [activeNav, setActiveNav] = useState("#");
+```
+
+Set clicked menu item background different from the others:
+
+>To notice changes, we use `useState`
+
+>In the logic, when we click on the item, we set state variable as id of the item. In the `className` of the item, we check it's id equals to state variable or not. If it equals, then we set it's `className` as `active`. Therefore, it's background will be different from the others.
+
+```js
+const [activeNav, setActiveNav] = useState("#");
+  return (
+    <nav>
+      <a href="#" onClick={() => setActiveNav("#")} className={activeNav === "#" ? "active" : ""}><AiOutlineHome/></a>
+      <a href="#about" onClick={() => setActiveNav("#about")} className={activeNav === "#about" ? "active" : ""}><AiOutlineUser/></a>
+      <a href="#experience" onClick={() => setActiveNav("#experience")} className={activeNav === "#experience" ? "active" : ""}><BiBook/></a>
+      <a href="#services" onClick={() => setActiveNav("#services")} className={activeNav === "#services" ? "active" : ""}><RiServiceLine/></a>
+      <a href="#contact" onClick={() => setActiveNav("#contact")} className={activeNav === "#contact" ? "active" : ""}><BiMessageSquareDetail/></a>
+    </nav>
+  )
+```
+
+>CSS code to set selected item's background and color
+
+```css
+nav a.active{
+    background: var(--color-bg);
+    color: var(--color-white);
+}
+```
