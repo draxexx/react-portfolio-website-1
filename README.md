@@ -79,3 +79,15 @@ position: absolute;
     left: 50%;
     transform: translateX(-50%);
 ```
+
+To center an item on the page all the time:
+
+>It will be on the page all the time because it's `position` is `fixed`. Also it's `z-index` equals `2`, so it will be top of the other objects.
+
+```css
+z-index: 2;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 2rem;
+```
