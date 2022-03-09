@@ -1,3 +1,4 @@
+import "./about.css";
 
 const AboutCard = ({ title, description, icon }) => {
     return (

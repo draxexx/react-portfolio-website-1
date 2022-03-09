@@ -1,5 +1,5 @@
 import "./about.css";
-import ME from "../../assets/me.png"
+import ME from "../../assets/about_me.jpg"
 import AboutCard from "./AboutCard";
 import { FaAward } from "react-icons/fa"
 import { FiUsers } from "react-icons/fi"
