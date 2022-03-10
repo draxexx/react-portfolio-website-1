@@ -1,3 +1,4 @@
+import "./services.css";
 import { BiCheck } from "react-icons/bi";
 
 const ServiceCard = ({ itemCount, title }) => {
@@ -6,10 +7,12 @@ const ServiceCard = ({ itemCount, title }) => {
             <div className="service__head">
                 <h3>{title}</h3>
             </div>
-            {Array(itemCount).fill(<ul className="service__list">
-                <BiCheck className="service__list-icon" />
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </ul>)}
+            <ul className="service__list">
+                {Array(itemCount).fill(<li>
+                    <BiCheck className="service__list-icon" />
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </li>)}
+            </ul>
         </article>
     )
 }
