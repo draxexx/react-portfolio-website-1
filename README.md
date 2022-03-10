@@ -278,3 +278,14 @@ onClick={() => {
         })
       }
 ```
+
+### To repeat certain element:
+
+>In this example, we repeat the `ul` element
+
+```js
+{Array(itemCount).fill(<ul className="service__list">
+                <BiCheck className="service__list-icon" />
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </ul>)}
+```
