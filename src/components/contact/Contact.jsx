@@ -13,9 +13,9 @@ const Contact = () => {
 
       <div className="container contact__container">
         <div className="contact__options">
-          <ContactOption icon={<MdOutlineEmail />} title="Email" content="test@gmail.com" href="mailto:test@gmail.com" />
-          <ContactOption icon={<RiMessengerLine />} title="Messenger" content="egator" href="https://messenger.com" />
-          <ContactOption icon={<BsWhatsapp />} title="WhatsApp" content="+123456789" href="https://api.whatsapp.com/send?+123456780" />
+          <ContactOption icon={<MdOutlineEmail className="contact__option-icon" />} title="Email" content="test@gmail.com" href="mailto:test@gmail.com" />
+          <ContactOption icon={<RiMessengerLine className="contact__option-icon" />} title="Messenger" content="egator" href="https://messenger.com" />
+          <ContactOption icon={<BsWhatsapp className="contact__option-icon" />} title="WhatsApp" content="+123456789" href="https://api.whatsapp.com/send?+123456780" />
         </div>
         <form action="">
           <input type="text" name="name" placeholder="Your Full Name" required />
