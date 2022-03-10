@@ -289,3 +289,58 @@ onClick={() => {
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </ul>)}
 ```
+
+### To Add Carousel/Slides:
+
+1. Go to [link](https://swiperjs.com/react).
+
+2. Install `SwiperJS`
+
+>Type it in the terminal
+
+`npm i swiper`
+
+3. Import necessary elements
+
+```js
+// import Swiper core and required modules
+import { Pagination } from 'swiper';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+```
+4. Wrap your element with `Swiper` and it's items with `SwiperSlide`
+
+```js
+<Swiper className="container testimonials__container"
+        // install Swiper modules
+        modules={[Pagination]}
+        spaceBetween={40}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+      >
+        <SwiperSlide>
+          <TestimonialItem name="Aniruddha Jarmo" avatar={AVTR1} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <TestimonialItem name="Bernetta Blake" avatar={AVTR2} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <TestimonialItem name="Odell Neely" avatar={AVTR3} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <TestimonialItem name="Sudhir Noam" avatar={AVTR4} />
+        </SwiperSlide>
+      </Swiper>
+```
+
+5. You can style indicators
+
+```css
+.swiper-pagination-clickable .swiper-pagination-bullet{
+    background: var(--color-primary);
+}
+```
